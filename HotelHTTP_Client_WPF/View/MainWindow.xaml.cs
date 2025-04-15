@@ -9,7 +9,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace HotelHTTP_Client_WPF
+namespace HotelHTTP_Client_WPF.View
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
