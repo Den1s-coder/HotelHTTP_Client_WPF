@@ -16,14 +16,14 @@ namespace HotelHTTP_Client_WPF.Service
 
         public HotelService() 
         {
-            _httpClient.BaseAddress = new Uri("https://localhost:5001/");
+            _httpClient.BaseAddress = new Uri("http://localhost:5229/");
         }
 
         public async Task<List<Room>> GetAvaibleRoomsAsync()
         {
             try
             {
-                return await _httpClient.GetFromJsonAsync<List<Room>>("api/avaible");
+                return await _httpClient.GetFromJsonAsync<List<Room>>("api/Rooms/Available");
             }
             catch(Exception ex) 
             {
@@ -41,7 +41,7 @@ namespace HotelHTTP_Client_WPF.Service
                 EndTime = endTime
             };
 
-            var responce = await _httpClient.PostAsJsonAsync("api/booking", booking);
+            var responce = await _httpClient.PostAsJsonAsync("api/Rooms/Book", booking);
             return responce.IsSuccessStatusCode;
         }
     }
