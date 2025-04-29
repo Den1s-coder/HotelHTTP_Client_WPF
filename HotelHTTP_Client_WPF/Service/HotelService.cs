@@ -32,13 +32,12 @@ namespace HotelHTTP_Client_WPF.Service
             }
         }
 
-        public async Task<bool> BookRoomAsync(int roomId, DateTime startTime, DateTime endTime)
+        public async Task<bool> BookRoomAsync(int roomId, DateTime Date)
         {
-            var booking = new
+            var booking = new BookingRequest
             {
                 RoomId = roomId,
-                StartTime = startTime,
-                EndTime = endTime
+                Date = Date
             };
 
             var responce = await _httpClient.PostAsJsonAsync("api/Rooms/Book", booking);

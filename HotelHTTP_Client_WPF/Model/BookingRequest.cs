@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace HotelHTTP_Client_WPF.Model
 {
-    class Room
+    class BookingRequest
     {
-        public int Id { get; set; }
-        public int Beds { get; set; }
-        public int PricePerDay { get; set; }
+        public int RoomId {  get; set; }
+        public DateTime Date { get; set; }
     }
 }

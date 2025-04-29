@@ -29,28 +29,17 @@ namespace HotelHTTP_Client_WPF.View
 
         private async void BookButton_Click(object sender, RoutedEventArgs e)
         {
-            if (RoomsDataGrid.SelectedItem is Room selectedRoom)
+            if (RoomsDataGrid.SelectedItem is Room selectedRoom && DatePicker.SelectedDate.HasValue)
             {
-                var success = await _hotelService.BookRoomAsync(selectedRoom.Id,DateTime.Today,DateTime.Today.AddDays(1));
-                if (success)
+                var responce = await _hotelService.BookRoomAsync(selectedRoom.Id,DatePicker.SelectedDate.Value);
+                if (responce)
                 {
                     MessageBox.Show("Бронювання успішне");
-                    await LoadAndUpdate();
                 }
                 else 
                 { 
                     MessageBox.Show("Не вдалося забронювати номер"); 
                 }
-            }
-        }
-
-        private async Task LoadAndUpdate()
-        {
-            var rooms = await _hotelService.GetAvaibleRoomsAsync();
-            _rooms.Clear();
-            foreach (var room in rooms)
-            {
-                _rooms.Add(room);
             }
         }
     }
