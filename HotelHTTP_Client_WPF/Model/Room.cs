@@ -11,6 +11,5 @@ namespace HotelHTTP_Client_WPF.Model
         public int Id { get; set; }
         public int Beds { get; set; }
         public int PricePerDay { get; set; }
-        bool IsAvaible { get; set; }
     }
 }
